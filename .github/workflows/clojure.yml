@@ -1,0 +1,19 @@
+name: Clojure CI
+
+on:
+  push:
+    branches: [ "sms_auto_app" ]
+  pull_request:
+    branches: [ "sms_auto_app" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: lein deps
+    - name: Run tests
+      run: lein test
